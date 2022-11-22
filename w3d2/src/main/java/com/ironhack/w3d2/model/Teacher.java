@@ -10,7 +10,7 @@ public class Teacher {
     @Column(name = "id") // necesario si el campo de SQL tiene otro nombre
     private Integer id;
 
-//    @Column(name = "teacher")
+    @Column(name = "teacher")
     private String teacher;
 
 //  Necesitamos el constructor vacío
@@ -18,7 +18,6 @@ public class Teacher {
     }
 
 //  Necesitamos el constructor con todos los elementos
-
     public Teacher(Integer id, String teacher) {
         this.id = id;
         this.teacher = teacher;
