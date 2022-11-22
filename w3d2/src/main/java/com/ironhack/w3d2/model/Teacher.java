@@ -17,9 +17,13 @@ public class Teacher {
     public Teacher() {
     }
 
-//  Necesitamos el constructor con todos los elementos
+    //  Necesitamos el constructor con todos los elementos (no hacen falta los elemntos autogenerados)
     public Teacher(Integer id, String teacher) {
         this.id = id;
+        this.teacher = teacher;
+    }
+
+    public Teacher(String teacher) {
         this.teacher = teacher;
     }
 
@@ -37,5 +41,13 @@ public class Teacher {
 
     public void setTeacher(String teacher) {
         this.teacher = teacher;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", teacher='" + teacher + '\'' +
+                '}';
     }
 }
