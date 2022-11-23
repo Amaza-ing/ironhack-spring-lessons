@@ -144,4 +144,65 @@ class CourseRepositoryTest {
         System.out.println(courseList);
         assertEquals(1, courseList.size());
     }
+
+
+    //    ******************************************************************************
+    //    ********************************* NATIVE SQL *********************************
+    //    ******************************************************************************
+
+    @Test
+    void nativeFindAllWhereHours200_callMethod_courseList() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereHours200();
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
+    }
+
+    @Test
+    void nativeFindHoursSum_callMethod_HoursSum() {
+        Integer hoursSum = courseRepository.nativeFindHoursSum();
+        System.out.println(hoursSum);
+        assertEquals(940, hoursSum);
+    }
+
+    @Test
+    void nativeFindAllWhereClassroomB1_callMethod_courseList() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereClassroomB1();
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void nativeFindAllWhereContainingAlgebra_callMethod_courseList() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereContainingAlgebra();
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
+    }
+
+    @Test
+    void nativeFindAllWhereHoursLessThan200_callMethod_courseList() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereHoursLessThan200();
+        System.out.println(courseList);
+        assertEquals(6, courseList.size());
+    }
+
+    @Test
+    void nativeFindAllWhereClassroomAndHoursParams_validParams_correctCourses() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereClassroomAndHoursParams("B1", 160);
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void nativeFindAllWhereClassroomAndHoursNamedParams_validParams_correctCourses() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereClassroomAndHoursNamedParams("B1", 160);
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void nativeFindAllWhereContainingStrParam_validParam_correctCourses() {
+        List<Course> courseList = courseRepository.nativeFindAllWhereContainingStrParam("Algebra");
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
+    }
 }
