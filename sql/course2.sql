@@ -31,6 +31,49 @@ INSERT INTO course (course, hours, classroom, vacations, teacher_id) VALUES
 ('Physics', 200, 'C1', '3 weeks', 1),
 ('Chemistry', 120, 'Lab1', '2 weeks', 3);
 
+
+
+CREATE TABLE exam (
+	course VARCHAR(255) NOT NULL,
+    start_date DATE,
+    mandatory BOOL,
+    PRIMARY KEY (course)
+);
+
+CREATE TABLE multiple_choice_exam (
+	course VARCHAR(255) NOT NULL,
+    number_of_choices INT,
+    FOREIGN KEY (course) REFERENCES exam(course)
+);
+
+CREATE TABLE free_response_exam (
+	course VARCHAR(255) NOT NULL,
+    FOREIGN KEY (course) REFERENCES exam(course)
+);
+
+
+
+
+CREATE TABLE student (
+	id INT NOT NULL AUTO_INCREMENT,
+    grade INT,
+    street VARCHAR(255),
+    house_number INT,
+    telephone VARCHAR(255),
+    PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
 -- SELECT * FROM teacher; 
 -- SELECT * FROM course;
 
