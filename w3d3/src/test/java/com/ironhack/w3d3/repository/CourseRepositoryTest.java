@@ -85,6 +85,20 @@ class CourseRepositoryTest {
     }
 
 
+//    Este test falla de momento
+    @Test
+    void deleteByClassroom() {
+        Course course = new Course("new course", 130, "F1", "2 weeks", 2);
+        courseRepository.save(course);
+        List<Course> courseList = courseRepository.findAll();
+        System.out.println("List with saved course: " + courseList);
+        courseRepository.deleteByClassroom("F1");
+        List<Course> courseListDeleted = courseRepository.findAll();
+        System.out.println("Original List: " + courseListDeleted);
+        assertEquals(7, courseList.size());
+    }
+
+
 //    ******************************************************************************
 //    ************************************ JPQL ************************************
 //    ******************************************************************************

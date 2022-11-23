@@ -17,6 +17,8 @@ public interface CourseRepository extends JpaRepository<Course, String> {
     List<Course> findAllByCourseContaining(String str);
     List<Course> findAllByHoursLessThan(Integer hours);
 
+    void deleteByClassroom(String classroom);
+
 
 //    JPQL
 
