@@ -29,6 +29,11 @@ class CourseRepositoryTest {
         courseRepository.deleteById("Algebra");
     }
 
+
+    //    ******************************************************************************
+    //    ************************************* JPA ************************************
+    //    ******************************************************************************
+
     @Test
     public void findAll_courses_courseList() {
         List<Course> courseList = courseRepository.findAll();
@@ -77,5 +82,66 @@ class CourseRepositoryTest {
         List<Course> courseList = courseRepository.findAllByHoursLessThan(150);
         System.out.println(courseList);
         assertEquals(4, courseList.size());
+    }
+
+
+//    ******************************************************************************
+//    ************************************ JPQL ************************************
+//    ******************************************************************************
+
+    @Test
+    void findAllWhereHours200_callMethod_courseList() {
+        List<Course> courseList = courseRepository.findAllWhereHours200();
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
+    }
+
+    @Test
+    void findHoursSum_callMethod_HoursSum() {
+        Integer hoursSum = courseRepository.findHoursSum();
+        System.out.println(hoursSum);
+        assertEquals(940, hoursSum);
+    }
+
+    @Test
+    void findAllWhereClassroomB1_callMethod_courseList() {
+        List<Course> courseList = courseRepository.findAllWhereClassroomB1();
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void findAllWhereContainingAlgebra_callMethod_courseList() {
+        List<Course> courseList = courseRepository.findAllWhereContainingAlgebra();
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
+    }
+
+    @Test
+    void findAllWhereHoursLessThan200_callMethod_courseList() {
+        List<Course> courseList = courseRepository.findAllWhereHoursLessThan200();
+        System.out.println(courseList);
+        assertEquals(6, courseList.size());
+    }
+
+    @Test
+    void findAllWhereClassroomAndHoursParams_validParams_correctCourses() {
+        List<Course> courseList = courseRepository.findAllWhereClassroomAndHoursParams("B1", 160);
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void findAllWhereClassroomAndHoursNamedParams_validParams_correctCourses() {
+        List<Course> courseList = courseRepository.findAllWhereClassroomAndHoursNamedParams("B1", 160);
+        System.out.println(courseList);
+        assertEquals(3, courseList.size());
+    }
+
+    @Test
+    void findAllWhereContainingStrParam_validParam_correctCourses() {
+        List<Course> courseList = courseRepository.findAllWhereContainingStrParam("Algebra");
+        System.out.println(courseList);
+        assertEquals(1, courseList.size());
     }
 }
