@@ -18,10 +18,6 @@ public class Teacher {
     }
 
     //  Necesitamos el constructor con todos los elementos (no hacen falta los elemntos autogenerados)
-    public Teacher(Integer id, String teacher) {
-        this.id = id;
-        this.teacher = teacher;
-    }
 
     public Teacher(String teacher) {
         this.teacher = teacher;
