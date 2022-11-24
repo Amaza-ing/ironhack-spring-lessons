@@ -29,7 +29,7 @@ CREATE TABLE course (
     hours INT,
     classroom VARCHAR(255),
     vacations VARCHAR(255),
-    teacher_id INT NOT NULL,
+    teacher_id INT,
     PRIMARY KEY (course),
     FOREIGN KEY (teacher_id) REFERENCES teacher(id)
 );

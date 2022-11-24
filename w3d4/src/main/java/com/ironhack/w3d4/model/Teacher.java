@@ -1,6 +1,7 @@
 package com.ironhack.w3d4.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity // imprescindible en todas las entidades
 @Table(name = "teacher") // necesario cuando el nombre de la tabla sea diferente al de la clase
@@ -17,6 +18,10 @@ public class Teacher {
     @JoinColumn(name = "address_id")
     private Address address;
 
+//    Esto es para convertir la relación many to one en bidireccional, no es necesario para hacer el join
+//    Si lo ponemos, hay que tener cuidado para que no ocurra un error de tipo stack overflow
+    @OneToMany(mappedBy = "teacher")
+    private Set<Course> courses;
 
 
 

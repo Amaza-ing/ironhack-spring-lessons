@@ -20,7 +20,7 @@ class CourseRepositoryTest {
 
     @BeforeEach
     public void setUp() {
-        Course algebra = new Course("Algebra", 130, "B1", "2 weeks", 2);
+        Course algebra = new Course("Algebra", 130, "B1", "2 weeks", null);
         courseRepository.save(algebra);
     }
 
@@ -37,7 +37,9 @@ class CourseRepositoryTest {
     @Test
     public void findAll_courses_courseList() {
         List<Course> courseList = courseRepository.findAll();
-        System.out.println(courseList);
+        for (Course course: courseList) {
+            System.out.println(course);
+        }
         assertEquals(7, courseList.size());
     }
 
