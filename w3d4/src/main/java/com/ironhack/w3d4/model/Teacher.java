@@ -13,18 +13,24 @@ public class Teacher {
     @Column(name = "teacher")
     private String teacher;
 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+
+
+
+
 //  Necesitamos el constructor vacío
     public Teacher() {
     }
 
     //  Necesitamos el constructor con todos los elementos (no hacen falta los elemntos autogenerados)
-    public Teacher(Integer id, String teacher) {
+
+    public Teacher(Integer id, String teacher, Address address) {
         this.id = id;
         this.teacher = teacher;
-    }
-
-    public Teacher(String teacher) {
-        this.teacher = teacher;
+        this.address = address;
     }
 
     public Integer getId() {
@@ -43,11 +49,20 @@ public class Teacher {
         this.teacher = teacher;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
         return "Teacher{" +
                 "id=" + id +
                 ", teacher='" + teacher + '\'' +
+                ", address=" + address +
                 '}';
     }
 }
