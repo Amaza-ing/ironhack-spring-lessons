@@ -31,9 +31,7 @@ public class Teacher {
     }
 
     //  Necesitamos el constructor con todos los elementos (no hacen falta los elemntos autogenerados)
-
-    public Teacher(Integer id, String teacher, Address address) {
-        this.id = id;
+    public Teacher(String teacher, Address address) {
         this.teacher = teacher;
         this.address = address;
     }
