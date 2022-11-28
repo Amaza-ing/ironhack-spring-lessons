@@ -1,5 +1,6 @@
 package com.ironhack.w4d1.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Teacher {
 
     @OneToMany(mappedBy = "teacher")
     @ToString.Exclude
+    @JsonIgnore
     private Set<Course> courses;
 
 //    relación unidireccional one to many
