@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,9 @@ public class CourseController implements ICourseController {
 
     @Autowired
     CourseRepository courseRepository;
+
+
+    //  ******************************************************  GET  ******************************************************
 
     @GetMapping("/courses")
     @ResponseStatus(HttpStatus.OK)
@@ -43,5 +47,14 @@ public class CourseController implements ICourseController {
             @RequestParam Optional<Integer> hours
     ) {
         return courseService.getCourseByClassroom(classroom, hours);
+    }
+
+
+    //  *****************************************************  POST  ******************************************************
+
+    @PostMapping("/courses")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveCourse(@RequestBody @Valid Course course) {
+        courseRepository.save(course);
     }
 }
