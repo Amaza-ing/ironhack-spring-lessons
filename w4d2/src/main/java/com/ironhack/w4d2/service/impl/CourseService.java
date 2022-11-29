@@ -25,4 +25,33 @@ public class CourseService implements ICourseService {
         if (hours.isPresent()) return courseRepository.findAllByClassroomAndHours(classroom, hours.get());
         return courseRepository.findAllByClassroom(classroom);
     }
+
+    public void updateCourse(Course course, String id) {
+        Optional<Course> courseOptional = courseRepository.findById(id);
+        if (courseOptional.isEmpty()) return;
+        course.setCourse(id);
+        courseRepository.save(course);
+    }
+
+    public void updateCourseHours(Integer hours, String id) {
+        Optional<Course> courseOptional = courseRepository.findById(id);
+        if (courseOptional.isEmpty()) return;
+        Course course = courseOptional.get();
+        course.setHours(hours);
+        courseRepository.save(course);
+    }
+
+    public void updateCourseClassroom(String classroom, String id) {
+        Optional<Course> courseOptional = courseRepository.findById(id);
+        if (courseOptional.isEmpty()) return;
+        Course course = courseOptional.get();
+        course.setClassroom(classroom);
+        courseRepository.save(course);
+    }
+
+    public void deleteCourse(String id) {
+        Optional<Course> courseOptional = courseRepository.findById(id);
+        if (courseOptional.isEmpty()) return;
+        courseRepository.deleteById(id);
+    }
 }

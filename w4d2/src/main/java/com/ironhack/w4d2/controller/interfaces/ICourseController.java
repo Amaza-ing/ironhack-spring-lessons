@@ -1,5 +1,7 @@
 package com.ironhack.w4d2.controller.interfaces;
 
+import com.ironhack.w4d2.controller.dto.CourseClassroomDTO;
+import com.ironhack.w4d2.controller.dto.CourseHoursDTO;
 import com.ironhack.w4d2.model.Course;
 
 import java.util.List;
@@ -18,5 +20,21 @@ public interface ICourseController {
 //  *****************************************************  POST  ******************************************************
 
     void saveCourse(Course course);
+
+
+//  ******************************************************  PUT  ******************************************************
+
+    void updateCourse(Course course, String id);
+
+
+//  *****************************************************  PATCH  *****************************************************
+
+    void updateCourseHours(CourseHoursDTO courseHoursDTO, String id);
+    void updateCourseClassroom(CourseClassroomDTO courseClassroomDTO, String id);
+
+
+//  ****************************************************  DELETE  *****************************************************
+
+    void deleteCourse(String id);
 
 }
